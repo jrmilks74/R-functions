@@ -5,10 +5,10 @@ se <- function(x){
 }
 
 #Returns the 95% confidence intervals for the specified vector
-ci <- function(x){
-  n <- length(x)
-  se <- sd(x)/sqrt(n)
-  c(mean(x)-qt(0.975, df=n-1)*se, mean(x)+qt(0.975, df=n-1)*se)
+ci <- function(x, alpha){
+        n <- length(x)
+        se <- sd(x)/sqrt(n)
+        c(mean(x)-qt(1-alpha/2, df=n-1)*se, mean(x)+qt(1-alpha/2, df=n-1)*se)
 }
 
 #Plots 95% confidence intervals on linear regression graphs
